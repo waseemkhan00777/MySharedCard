@@ -1,0 +1,488 @@
+.color{
+    color: rgb(0, 173, 238);
+}
+
+.arrows{
+	height: .8rem;
+    margin-bottom: 0; 
+    margin-left: .4rem;
+    margin-top: -.1rem;
+}
+
+#main_design_div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+#round, #square{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	white-space: nowrap;
+}
+
+#round{
+	margin-right: 50px;
+}
+
+#square_color{
+	width: 3rem;
+	height: 3rem;
+	border:1px solid black;
+}
+
+#round_color{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	border:1px solid black;
+}
+
+.final_button{
+	width: 2.5rem;
+	height: 2.5rem;	
+}
+
+.button_text{
+	font-size: .7rem;
+	font-weight: 600;
+}
+
+.button_div{
+	width:3rem;
+	height:3rem;
+	border-radius: 50%;
+	display:flex;
+	flex-wrap: nowrap;
+	align-items:center;
+	justify-content: space-evenly;
+	cursor: pointer;
+}
+
+.final_button_div{
+	display: flex;
+	
+	flex-direction: column;
+	align-items: center;
+	white-space: nowrap;
+	padding: 10px;
+}
+
+.final_button_mail_div{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.rotate-ccw, .rotate-cw,.upload_img{
+	background-color: rgb(0, 173, 238);
+	border-radius: 4px;
+	border: none;
+	color: white;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.rotate-ccw:hover, .rotate-cw:hover.upload_img:hover{
+	color: black;
+}
+
+#card_placeholder{
+	border: 1px solid lightgrey;
+	display: block;
+	width: 25%;
+	margin: 10px auto;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#logo{
+    width: 15vw;
+    height: 7.5vw;
+    margin-left: 38%;
+}
+
+/*form styles*/
+.msform {
+	width: 300px;
+	margin: 15px auto;
+	text-align: center;
+	position: relative;
+}
+
+@media screen and (min-width: 990px){
+	#first_step{
+		width: 50%;
+		margin: auto;
+		/* font-weight: 600; */
+	}
+
+	.msform{
+		width: 600px;
+		margin: 15px 25%;
+	}
+}
+
+fieldset {
+	background: white;
+	border: 0 none;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+
+@media screen and (max-width: 525px){
+	#logo{
+		width: 38vw;
+		height: 28vw;
+		margin-left: 28%;
+	}	
+	fieldset{
+		width: 100%;
+		margin: 0%;
+	}
+	 
+}
+
+/*Hide all except first fieldset*/
+fieldset:not(:first-of-type) {
+	display: none;
+}
+
+/*buttons*/
+.action-button {
+	background: rgb(0,173,238);
+	/* font-weight: bold; */
+	font-size: .8rem;
+	color: white;
+	border: 0 none;
+	cursor: pointer;
+	/* padding: 10px 5px; */
+	margin: 10px 5px;
+
+}
+
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 20.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 50%;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: grey;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: rgb(0,173,238);
+	color: white;
+}
+
+
+/* color divs code */
+
+#color_first_row,#color_second_row,#color_third_row{
+	display: flex;
+	/* margin: auto; */
+	margin-bottom:13px;
+    justify-content: center;
+	align-items: center;
+	width: auto;
+	/* margin-bottom: 200px; */
+}
+
+.color_div{
+	width: 2em;
+	height: 2em;
+	margin: auto;
+	margin:20px;
+	cursor: pointer;
+}
+@media screen and (max-width: 520px){
+	#color_first_row,#color_second_row,#color_third_row{
+		margin-bottom:13px;
+		display: flex;
+		margin: auto;
+		width: 350px;
+	}
+	.color_div{
+		/* width: 4em;
+		height: 3em; */
+		margin: auto;
+		margin:20px;
+		cursor: pointer;
+	} 
+}
+input[type="radio"]{
+	/* margin-top:50px; */
+	margin: 1.5rem 0;
+}
+#colors_name{
+	font-size: .5rem;
+	font-weight: 500;
+	/* font-weight: bold; */
+	white-space: nowrap;
+}
+/* custom radio buttons */
+/* @keyframes click-wave {
+	0% {
+	  height: 40px;
+	  width: 40px;
+	  opacity: 0.35;
+	  position: relative;
+	}
+	100% {
+	  height: 200px;
+	  width: 200px;
+	  margin-left: -80px;
+	  margin-top: -80px;
+	  opacity: 0;
+	}
+  } */
+.option-input {
+	/* justify-content: space-evenly; */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	position: relative;
+	top: 13.33333px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: .5em;
+    height: .5em;
+	transition: all 0.15s ease-out 0s;
+	background: #cbd1d8;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 0.5rem;
+	outline: none;
+	position: relative;
+	z-index: 1000;
+  }
+  .option-input:hover {
+	background: #9faab7;
+  }
+  .option-input:checked {
+	background: rgb(0,173,238);
+  }
+  
+  /* .option-input:checked::after {
+	/* -webkit-animation: click-wave 0.65s;
+	-moz-animation: click-wave 0.65s;
+	animation: click-wave 0.65s; 
+	background: #9ad1cc;
+	display: block;
+	position: relative;
+	z-index: 100;
+  } */
+  .option-input.radio {
+	border-radius: 50%;
+  }
+  .option-input.radio::after {
+	border-radius: 50%;
+  }
+
+  #radio_back,#move_to_third_step{
+	  margin-top: 40px;
+  }
+
+/* third step div styling */
+#outter_div{
+	/* width: 320px;
+	min-height: 540px; */
+	max-width: 16rem;
+	min-height: 10rem;
+	margin: auto;
+	border: 1px solid black;
+	/* border-radius: 5%; */
+	border-radius: 1rem;
+}
+
+#inner_background_color{
+	/* background-color: rgb(0,173,238); */
+	/* width: 318px;
+	height: 150px; */
+	height: 6rem;
+    width: 100%;
+	border-radius: 5% 5% 85% 85% / 50%;
+	/* border-top-right-radius: 1rem;
+	border-top-left-radius: 1rem; */
+}
+
+#person_name{
+	margin-top: 60px;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+#person_job{
+	font-size: .7rem;
+    font-weight: 500;
+}
+
+/* div for connection types */
+#main_connection_div{
+	/* border: 2px solid rgb(0,173,238); */
+	min-height: 70px;
+}
+
+#connection_div{
+	/* width: 318px; */
+	/* min-height: 255px; */
+	/* border: 2px solid rgb(0,173,238); */
+	max-width: 16rem;
+	margin-left: 0;
+	margin-bottom: 30px;
+}
+
+#static_div{
+	/* width:159px;
+	height:70px; */
+	display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+	flex: 2 1;
+	padding: .2rem;
+	/* white-space: nowrap; */
+	height: 3rem;
+    width: 50%;
+	border:2px solid rgb(0,173,238);
+	cursor: pointer;	
+}
+
+.more_div{
+	height: 3rem;
+	width: 50%;
+	border:2px solid rgb(0,173,238);
+}
+
+#tap{
+	text-align: center;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+#contact_d{
+	color: #999;
+    font-size: .6rem;
+    text-align: center;
+}
+
+#input_con,#edit_input_con{
+	margin-top : 5px;
+	margin:auto;
+}
+
+/* class for final buttons on card */
+.additional-buttons{
+	color:white;
+	display:block;
+	margin-bottom:15px;
+	margin:20px;
+	border-radius:20px;
+	font-size: small;
+}
+.has-error input[type="text"], .has-error input[type="email"], .has-error select {
+    border: 1px solid #a94442;
+}
+
+
+
+
+label.cabinet{
+	display: block;
+	cursor: pointer;
+}
+
+label.cabinet input.file{
+	position: relative;
+	height: 100%;
+	width: auto;
+	opacity: 0;
+	-moz-opacity: 0;
+  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  margin-top:-30px;
+}
+
+#upload-demo{
+	width: 250px;
+	height: 250px;
+  	padding-bottom:25px;
+}
+figure figcaption {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+    padding-left: 9px;
+    padding-bottom: 5px;
+    text-shadow: 0 0 10px #000;
+}
+
+.spacing_between{
+	padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* default css of attributes */
+body{
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+.all_heading{
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+#second_step{
+	margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+#s1_select_photo{
+	font-size: .8rem;
+	/* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; */
+}

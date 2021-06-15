@@ -1,0 +1,622 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- external style sheet -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- font awone icons -->
+    <!-- <script src="https://use.fontawesome.com/cd923dd260.js"></script> -->
+
+    <script src="script/script.js"></script>
+
+    <!-- <script src="script/jquery.cropit.js" defer></script> -->
+    <script src="script/cropzee.js" defer></script>
+    <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+    <title>My Shared Card</title>
+
+    <style>
+		.image-previewer {
+			/* height: 120px;
+            width: 120px; */
+            width: 110px;
+            height: 110px;
+            margin: auto;
+			display: flex;
+			border-radius: 50%;
+            border: 3px solid lightgrey;
+            cursor: pointer;
+            background-image:url('./images/placeholder.png');
+            background-repeat:no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+        #img_div{
+            height: 110px;
+            width: 110px;
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+            top: 40px;
+        }
+        .thumb {
+            background-size: cover;
+            border-radius: 50%;
+            /* height: 100%; */
+            /* border-radius: 20rem;
+            border-radius: 10rem; */
+            margin: auto;
+            width: 105px;
+            height: 105px;
+            background-repeat:no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            
+        }
+
+        /* .cropit-preview {
+        background-size: cover;
+        border: .2rem solid #ddd;
+        border-radius: 10rem;
+        margin: auto;
+        width: 110px;
+        height: 110px;
+        background-image:url('./images/placeholder.png');
+        background-repeat:no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+      } */
+
+      /* .thumb{
+            height: 120px;
+            width: 120px;
+            margin: auto;
+            border-radius: 50%;
+          } */
+      /* .cropit-preview-image-container {
+        cursor: move;
+      } */
+
+      .image-size-label {
+        margin-top: 10px;
+      }
+
+      input, .export {
+        display: block;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+	</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="./images/Logo.svg" alt="website logo" id="logo" >
+
+                <form action="" method="post" class="fieldset-class" id="user_input_data">
+                    <!-- progressbar -->
+                    <ul id="progressbar" class="msform">
+                      <li class="active"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                <div class="text-center">
+                    <fieldset >
+                        <div id="first_step" class="text-left">
+                            <h5 class="text-capitalize text-center all_heading font-weight-bold" >create your digital card</h5>
+                            <p class="text-muted text-center font-weight-normal">Enter your details and create your own</p>
+                            <p class="text-capitalize text-center font-weight-bold" id="s1_select_photo">select your photo</p>
+
+                            <label for="cropzee-input" class="image-previewer" data-cropzee="cropzee-input"></label>
+                            <input id="cropzee-input" name="card_image" type="file" onchange="displayImage(this)" style="display: none;" accept="image/*" > 
+                            <div id="message" class="text-center"></div>
+                            <script>
+                                $(document).ready(function(){
+                                    $("#cropzee-input").cropzee({startSize: [85, 85, '%'],});
+                                });
+                            </script>
+                            
+
+                            <!-- <div class="container">
+                                <div class="image-editor form-group text-center" >
+                                    <label for="" id="displayImage" class="cropit-preview" data-toggle="modal" data-target="#fmyModal"></label>
+                                    <div id="message"></div>
+                                </div>
+                              
+                                
+                                <div class="modal fade" id="fmyModal">
+                                  <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                    
+                                      
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      </div>
+                                      
+                                      
+                                      
+                                      <div class="modal-body">
+
+                                        <div class="image-editor form-group text-center" >
+                               
+                                            <label for="image_cropper" class="cropit-preview"></label>
+                                            <input type="file" id="image_cropper"  name="files[]" class="cropit-image-input" style="display: none;" accept="image/*" multiple="false">
+                            
+                                            <div class="image-size-label">
+                                              
+                                            </div>
+                                            <input type="range" class="cropit-image-zoom-input" style="margin: auto;">
+                                        </div>
+
+
+                                      </div>
+                                      
+                                      
+                                      
+                                        <div class="modal-footer">
+                                                <input type="button" id="rotateR" class="rotate-cw" value="Rotate right" style="margin-left: auto;"/>
+                                                <input type="button" name="upload" class="upload_img" id="upl" data-dismiss="modal" style="margin-right: auto;" value="Upload" >
+                                        </div>                                
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                            </div>                             -->
+
+                              <!-- <script>
+                                $(function() {
+                                  $('.image-editor').cropit({
+                                    imageState: {
+                                        src:"",
+                                    },
+                                  });
+                          
+                                  $('.rotate-cw').click(function() {
+                                    $('.image-editor').cropit('rotateCW');
+                                  });
+                                  $('.rotate-ccw').click(function() {
+                                    $('.image-editor').cropit('rotateCCW');
+                                  });
+                                });
+                              </script> -->
+
+                            <!-- <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" required data-error="Please enter your email.">
+                            </div> -->
+
+                            <div class="row">
+
+                                <div class="col-6 spacing_between">
+                                    <label for="name" class="font-weight-bold">Name</label>
+                                    <input type="text" class="form-control" name="name" id="name" required>
+                                    <div id="name_msg"></div>
+                                </div>
+    
+                                <div class="col-6 spacing_between">
+                                    <label for="email" class="font-weight-bold">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required data-error="Please enter your email.">
+                                    <div id="email_msg"></div>
+                                    <div id="validate_email"></div>
+                            
+                                </div>
+
+                                <div class="col-6 spacing_between" id="position_form" style="margin-top: 25px;">
+                                    <label for="position" class="mb-2 mr-sm-2 font-weight-bold">Position/Job</label>
+                                    <input type="text" class="form-control mb-2 mr-sm-2" id="position" name="position" required="required" data-error="Please enter your position."/>
+                                    <div id="pos_msg"></div>
+                                </div>
+
+                                <div class=" col-6 spacing_between" id="company_form" style="margin-top: 25px;">
+                                    <label for="pwd2" class="mb-2 mr-sm-2 font-weight-bold">Company <small class="text-muted">(optional)</small></label>
+                                    <input type="text" class="form-control mb-2 mr-sm-2" id="pwd2" name="comp_name"/>
+                                </div>
+                            </div>
+                            </div>
+
+                            <button id="back_to_main_screen" onclick="window.location.href = 'index.html';" type="button" name="back" class="action-button btn">
+                               <img class="arrows" src="./images/leftarrow.svg" alt="left arrow on back button"> Back
+                            </button>
+                            <button id="move_to_second_step"  type="button" name="next" class="next action-button btn" >Next
+                                <img class="arrows" src="./images/rightarrow.svg" alt="right arrow on next button">
+                            </button>
+                        
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div class="text-center">
+                            <p class="text-capitalize all_heading font-weight-bold">color theme</p>
+                            <p class="font-weight-normal text-muted">Select your preferred color</p>
+                        </div>
+
+                        <div id="second_step">
+                            
+                            <div id="color_first_row">
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(0,173,238);">
+                                        <input type="radio" class="option-input radio" id="rgb(0,173,238)" value="rgb(0,173,238)" name="color" checked>
+                                        <p id="colors_name">Light Blue</p>
+                                    </label>
+                                </div>
+                                
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(46,49,145);">
+                                        <input type="radio" class="option-input radio" id="rgb(46,49,145)" value="rgb(46,49,145)" name="color">
+                                        <p id="colors_name">Blue</p>
+                                    </label>
+                                </div>
+                                
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(144,39,142);">
+                                        <input type="radio" class="option-input radio" id="rgb(144,39,142)" value="rgb(144,39,142)" name="color">
+                                        <p id="colors_name">Purple</p>
+                                    </label>
+                                </div>
+                                
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(235,0,139);">
+                                        <input type="radio" class="option-input radio" id="rgb(235,0,139)" value="rgb(235,0,139)" name="color">
+                                        <p id="colors_name">Pink</p>
+                                    </label>
+                                </div>
+                                
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(246,146,30);">
+                                        <input type="radio"class="option-input radio" id="rgb(246,146,30)" value="rgb(246,146,30)" name="color">
+                                        <p id="colors_name">Orange</p>
+                                    </label>
+                                </div>
+                                
+
+                            </div>
+                            <div id="color_second_row"> 
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(236,28,36);"> 
+                                        <input type="radio" class="option-input radio" id="rgb(236,28,36)" value="rgb(236,28,36)" name="color">
+                                        <p id="colors_name">Red</p>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(55,179,74);">
+                                        <input type="radio" class="option-input radio" id="rgb(55,179,74)" value="rgb(55,179,74)" name="color">
+                                        <p id="colors_name">Green</p>
+                                    </label>
+                                </div>
+                                
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(0,104,56);">
+                                        <input type="radio" class="option-input radio" id="rgb(0,104,56)" value="rgb(0,104,56)" name="color">
+                                        <p id="colors_name">Dark Green</p>
+                                    </label>
+                                </div>
+                                
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(146,148,151);">
+                                        <input type="radio" class="option-input radio" id="rgb(146,148,151)" value="rgb(146,148,151)" name="color">
+                                        <p id="colors_name">Grey</p>
+                                    </label>
+                                </div>
+                                
+                                <div>
+                                    <label class="color_div"   style="background-color: rgb(35,31,32);">
+                                        <input type="radio" class="option-input radio" id="rgb(35,31,32)" value="rgb(35,31,32)" name="color">
+                                        <p id="colors_name">Black</p>
+                                    </label>
+                                </div>
+                                
+
+                            </div>
+                            <div id="color_third_row"> 
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(195,153,107)"> 
+                                        <input type="radio" class="option-input radio" id="rgb(195,153,107)" value="rgb(195,153,107)" name="color">
+                                        <p id="colors_name">Light Brown</p>
+                                    </label>
+                                </div>
+                                    
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(139,197,63)">
+                                        <input type="radio" class="option-input radio" id="rgb(139,197,63)" value="rgb(139,197,63)" name="color">
+                                        <p id="colors_name">Green Apple</p>
+                                    </label>
+                                </div>
+                                    
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(212,175,55)">
+                                        <input type="radio" class="option-input radio" id="rgb(212,175,55)" value="rgb(212,175,55)" name="color">
+                                        <p id="colors_name">Gold</p>
+                                    </label>
+                                </div>
+                                    
+
+                                <div>
+                                    <label class="color_div"  style="background-color: rgb(139,69,19)">
+                                        <input type="radio" class="option-input radio" id="rgb(139,69,19)" value="rgb(139,69,19)" name="color">
+                                        <p id="colors_name">Brown</p>
+                                    </label>
+                                </div>
+                                    
+                                <div>
+                                    <label class="color_div"   style="background-color: rgb(0,128,128)">
+                                        <input type="radio" class="option-input radio" id="rgb(0,128,128)" value="rgb(0,128,128)" name="color">
+                                        <p id="colors_name">Teal</p>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <button id="radio_back" type="button" name="previous" class="previous action-button btn">
+                            <img class="arrows" src="./images/leftarrow.svg" alt="left arrow on back button"> Back
+                        </button>
+    
+                        <button id="move_to_third_step" type="button" name="next" class="next action-button btn">Next
+                            <img class="arrows" src="./images/rightarrow.svg" alt="right arrow on back button">
+                        </button>
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div id="third_step">
+                            <div to_show_previewclass="text-center">
+                                <p class="text-capitalize all_heading font-weight-bold">customize your card</p>
+                                <p class="text-muted font-weight-normal">Add your contact details, social media and payments method</p>
+                            </div>
+                            <div id="connection_error_msg"></div>
+                            <div id="to_show_preview">
+                                <div id="outter_div">
+                                    <div id="inner_background_color" class="img_back_div">
+                                            <!-- <span id="img_div">
+                                                <div class="cropit-preview" id="image_div">
+                                                    <output id="list"></output>
+                                                </div>
+                                            </span> -->
+                                            <span id="img_div">
+                                                <label data-cropzee="cropzee-input" id="can"></label>
+                                            </span>
+                                    </div>
+                                    <div id="personal_info_div">
+                                        <div id="person_name" class="text-center text-capitalize">
+
+                                        </div>
+                                        <div id="person_job" class="text-center text-capitalize ">
+
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    <div class="containers" id="main_connection_div">
+                                    </br>
+                                        <div class="row" id="connection_div">
+                                            <div class="col-lg-6 col-6" id="static_div" data-toggle="modal" data-target="#myModal" onclick="reset()">
+                                                <div style="display: flex; flex-direction: column;">
+                                                    <span id="tap">Tap To Add</span>
+                                                    <span id="contact_d">Contact Detail</span>
+                                                </div>
+                                                <div>
+                                                    <img src="./images/download.svg" style="height: 1rem;" alt="add connection plus sign image">
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="5" class="more_div"></div>
+
+                                            <div id="4" class="more_div"></div>
+
+                                            <div id="3" class="more_div"></div>
+
+                                            <div id="2" class="more_div"></div>
+
+                                            <div id="1" class="more_div"></div>
+
+                                            <!-- The Modal -->
+                                            <div class="modal fade" id="myModal">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                    
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                        <h4 class="modal-title">Add a Contact Point</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <select name="connections" id="connection_list">
+                                                                <option value="select">Select Contact Point</option>
+                                                                <option value="phone_number">Phone Number</option>
+                                                                <option value="whatsapp">WhatsApp</option>
+                                                                <option value="sms">SMS/Text</option>
+                                                                <option value="email">Email</option>
+                                                                <option value="website">Website</option>
+                                                                <option value="instagram">Instagram</option>
+                                                                <option value="tiktok">TikTok</option>
+                                                                <option value="facebook">Facebook</option>
+                                                                <option value="twitter">Twitter</option>
+                                                                <option value="snapchat">Snapchat</option>
+                                                                <option value="telegram">Telegram</option>
+                                                                <option value="skype">Skype</option>
+                                                                <option value="zoom">Zoom</option>
+                                                                <option value="pinterest">Pinterest</option>
+                                                                <option value="tinder">Tinder</option>
+                                                                <option value="linkedin">LinkedIn</option>
+                                                                <option value="cashapp">Cash App</option>
+                                                                <option value="venmo">Venmo</option>
+                                                                <option value="zelle">Zelle</option>
+                                                                <option value="paypal">PayPal</option>
+                                                                <option value="youtube">YouTube</option>
+                                                                <option value="address">Address</option>
+                                                                <option value="file">File</option>
+                                                                <option value="link">Link</option>
+                                                            </select>
+                                                            
+                                                            <div id="connection_input_field">
+                                                            </br>
+                                                                <form>
+                                                                    <input type="text" name="input_connection_data" id="input_con">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Modal footer -->
+                                                        <div class="modal-footer">
+                                                            <!-- <i class="fa fa-2x fa-trash" aria-hidden="true"></i> -->
+                                                            <button type="button" class="btn btn-outline-light text-dark" data-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" id="add_connection_btn" data-dismiss="modal">Add Point</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- The edit Modal -->
+                                            <div class="modal fade" id="edit_Modal">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                    
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                        <h4 class="modal-title">Edit Connection</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <select name="edited_connections" id="edit_connection">
+                                                                <option value="select" selected>Select Connection</option>
+                                                                <option value="phone_number">Phone</option>
+                                                                <option value="whatsapp">WhatsApp</option>
+                                                                <option value="sms">SMS/Text</option>
+                                                                <option value="email">Email</option>
+                                                                <option value="website">Website</option>
+                                                                <option value="instagram">Instagram</option>
+                                                                <option value="tiktok">TikTok</option>
+                                                                <option value="facebook">Facebook</option>
+                                                                <option value="twitter">Twitter</option>
+                                                                <option value="snapchat">Snapchat</option>
+                                                                <option value="telegram">Telegram</option>
+                                                                <option value="skype">Skype</option>
+                                                                <option value="zoom">Zoom</option>
+                                                                <option value="pinterest">Pinterest</option>
+                                                                <option value="tinder">Tinder</option>
+                                                                <option value="linkedin">LinkedIn</option>
+                                                                <option value="cashapp">Cash App</option>
+                                                                <option value="venmo">Venmo</option>
+                                                                <option value="zelle">Zelle</option>
+                                                                <option value="paypal">PayPal</option>
+                                                                <option value="youtube">YouTube</option>
+                                                                <option value="address">Address</option>
+                                                                <option value="file">File</option>
+                                                                <option value="link">Link</option>
+                                                            </select>
+                                                            <div id="edit_connection_input_field">
+                                                                <input type="text" name="input_connection_data" id="edit_input_con" >
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Modal footer -->
+                                                        <div class="modal-footer">
+                                                            <!-- <i class="fa fa-2x fa-trash" aria-hidden="true" id="remove_connection" data-dismiss="modal"></i> -->
+                                                            <img style="height: 2rem;" src="./images/icons/bin.svg" id="remove_connection" data-dismiss="modal" alt="delete connection icon">
+                                                            <button type="button" class="btn btn-outline-light text-dark" onclick="change_back_id()" data-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" id="edit_connection_btn" data-dismiss="modal">Change Connection</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" name="previous" class="previous action-button btn">
+                            <img class="arrows" src="./images/leftarrow.svg" alt="left arrow on back button"> Back
+                        </button>
+
+                        <button type="button" name="next" class="next action-button btn" onclick="show_preview()">Next
+                            <img class="arrows" src="./images/rightarrow.svg" alt="right arrow on back button">
+                        </button>
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div id="fourth_step">
+                            <div class="text-center">
+                                <p class="text-capitalize all_heading">choose your design style</p>
+                                <p class="text-muted font-weight-normal">Tap the shape you preferred</p>
+
+                                <div id="main_design_div">
+                                    <div id="round" >
+                                        <div id="round_color" onclick="display_buttons(this.id)"></div>
+                                        <small>ROUND</small>    
+                                    </div>
+    
+                                    <div id="square" >
+                                        <div id="square_color" onclick="display_buttons(this.id)"></div>
+                                        <small>SQUARE</small>    
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="preview">
+
+                            </div>
+                        </div>
+
+                        <button type="button" name="previous" onclick="preview_back()" class="previous action-button btn">
+                            <img class="arrows" src="./images/leftarrow.svg" alt="left arrow on back button"> Back
+                        </button>
+
+                        <button type="button" onclick="window.location.href = 'trails_page.html';" name="submit" class="submit action-button btn">Confirm
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </button>
+
+                    </fieldset>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

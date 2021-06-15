@@ -1,0 +1,260 @@
+html, body
+	margin: 0
+	padding: 0
+	font-family: 'Regular', sans-serif
+	width: 100%
+	max-width: 1920px
+	color: #000000
+	margin: 0 auto
+
+@font-face
+	font-family: 'Regular'
+	src: url('../fonts/MyriadPro/MyriadPro-Regular.otf')
+
+@font-face
+	font-family: 'semiBold'
+	src: url('../fonts/MyriadPro/MyriadPro-Semibold.otf')
+
+@font-face
+	font-family: 'Bold'
+	src: url('../fonts/MyriadPro/MyriadPro-Bold.otf')
+
+.btn-primary
+	border-color: #00ADEE
+	background: #00ADEE
+	&:active, &:hover, &:focus
+		border-color: #059AC9
+		background: #059AC9
+
+.fSemi
+	font-family: 'semiBold'
+
+.fBold
+	font-family: 'Bold'
+
+.menu
+	position: absolute
+	top: 0
+	max-width: 1920px
+	margin: 0 auto
+	z-index: 1
+	width: 100%
+	.logo
+		padding-top: 18px
+		img
+			max-width: 200px
+			width: 100%
+	.share
+		padding-top: 18px
+		ul
+			padding: 0
+			list-style: none
+			text-align: right
+			li
+				display: inline-block
+				margin-left: 5px
+				img
+					width: 100%
+					max-width: 20px
+	.signup
+		text-align: right
+		padding-top: 15px
+		img
+			max-width: 30px
+
+
+.header
+	background: url(../img/bg_header.png)
+	background-position: bottom center
+	background-repeat: no-repeat
+	background-size: auto 900px
+	padding-top: 150px
+	padding-bottom: 70px
+	.left
+		h1
+			span
+				color: #00ADEE
+		.media
+			margin-bottom: 10px
+			img
+				max-width: 18px
+		small.text-muted
+			color: #BBBDBF!important
+			img
+				max-width: 15px
+	.right
+		text-align: right
+		img
+			max-width: 520px
+			width: 100%
+
+@media (max-width: 992px)
+	.header
+		margin-bottom: 60px
+		.left
+			margin-top: 0
+			h1
+				font-size: 30px
+			h4
+				font-size: 20px
+		.right
+			text-align: right
+
+@media (max-width: 768px)
+	.header
+		background: url(../img/bg_head_mobile.png)
+		background-position: bottom center
+		background-repeat: no-repeat
+		background-size: auto 350px
+		padding-bottom: 30px
+		.left
+			margin-bottom: 60px
+			h1, h4
+				text-align: center
+			.media
+				max-width: 280px
+				margin-left: auto
+				margin-right: auto
+				font-size: 14px
+				img
+					max-width: 20px
+			.mt-4
+				text-align: center
+		.right
+			text-align: center
+			img
+				max-width: 520px
+
+	.menu
+		.logo img
+			max-width: 200px
+		.share
+			padding-top: 18px
+			ul
+				text-align: left
+
+.keyFeatures
+	margin-top: 60px
+	margin-bottom: 60px
+	.mid
+		text-align: center
+	.desc
+		padding-top: 100px
+		.media
+			margin-bottom: 25px
+			line-height: normal
+			img
+				max-width: 50px
+				margin-top: 10px
+
+@media (max-width: 992px)
+	.keyFeatures
+		.desc
+			padding-top: 0
+		.mid
+			img
+				max-width: 300px
+
+.hiw
+	background: url(../img/bg_hiw.png)
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+	padding-top: 60px
+	padding-bottom: 60px
+	color: #fff
+	text-align: center
+	.item
+		display: block
+		border: 4px solid #fff
+		border-radius: 6px
+		padding: 30px
+		margin-bottom: 30px
+		img
+			width: 100%
+			max-width: 130px
+			margin-bottom: 20px
+		h5
+			margin-bottom: 0
+
+@media (max-width: 1200px)
+	.hiw
+		.item
+			min-height: 300px
+
+@media (max-width: 992px)
+	.hiw
+		.item
+			min-height: 330px
+
+@media (max-width: 768px)
+	.hiw
+		background: url(../img/bg_hiw_mobile.png)
+		background-position: center
+		background-repeat: no-repeat
+		background-size: cover
+		.item
+			min-height: auto
+
+.contactUs
+	padding-top: 60px
+	padding-bottom: 60px
+	input, textarea
+		border: 2px solid #000
+	label
+		font-family: 'semiBold', sans-serif
+
+.footer
+	padding-top: 60px
+	padding-bottom: 80px
+	background: url(../img/bg_hiw.png)
+	background-position: center top
+	background-size: auto 500px
+	background-repeat: no-repeat
+	color: #fff
+	.left
+		img
+			max-width: 16px
+	a
+		color: #fff
+	.right
+		text-align: right
+	.mid
+		text-align: center
+		a.btn-outline-light
+			border-width: 4px
+
+@media (max-width: 992px)
+	.footer
+		background: url(../img/bg_footer_mobile.png)
+		background-position: center top
+		background-size: auto 500px
+		background-repeat: no-repeat
+		.mid
+			margin-bottom: 20px
+		.left
+			text-align: center
+			margin-bottom: 20px
+		.right
+			text-align: center
+
+#back-to-top
+	position: fixed
+	bottom: 40px
+	right: 40px
+	z-index: 4
+	text-align: center
+	line-height: 30px
+	background: #212121
+	color: #fff
+	cursor: pointer
+	border: 0
+	border-radius: 50%
+	text-decoration: none
+	transition: 0.2s ease-out
+	opacity: 0
+	img
+		max-width: 32px
+
+#back-to-top.show
+	opacity: 1
